@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#155eef">
+  <meta name="description" content="DO IT 4 BETTER ENGLISH LEARNER — asesmen digital Bahasa Inggris SMK Kelas X.">
+  <title>DO IT 4 BETTER ENGLISH LEARNER</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" aria-label="DO IT 4 BETTER ENGLISH LEARNER">
+        <span class="brand-mark">D4</span> DO IT 4 BETTER ENGLISH LEARNER
+      </a>
+      <span class="navbar-text d-none d-md-inline">English Assessment • SMK Class X</span>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    <section id="startScreen" class="screen">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">DIGITAL ASSESSMENT</span>
+          <h1>DO IT 4 BETTER<br><span>ENGLISH LEARNER</span></h1>
+          <p class="lead">Tunjukkan kemampuan terbaikmu dalam Bahasa Inggris!</p>
+          <div class="hero-tags">
+            <span>📘 25 Soal</span><span>⏱️ 90 Menit</span><span>🎯 Pilihan Ganda</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun-disc">✦</div><div class="book book-back"></div><div class="book book-front">A<br><small>English</small></div>
+          <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-1 align-items-stretch">
+        <div class="col-lg-7">
+          <div class="panel-card h-100">
+            <div class="section-heading"><span class="heading-icon">👋</span><div><h2>Identitas Siswa</h2><p>Isi data dengan benar sebelum memulai.</p></div></div>
+            <form id="identityForm" novalidate>
+              <div class="mb-3">
+                <label for="studentName" class="form-label">Nama lengkap <span class="required">*</span></label>
+                <input id="studentName" name="studentName" class="form-control form-control-lg" type="text" maxlength="100" autocomplete="name" placeholder="Masukkan nama lengkap" required>
+                <div class="invalid-feedback">Nama lengkap wajib diisi (minimal 3 karakter).</div>
+              </div>
+              <div class="mb-3">
+                <label for="studentNis" class="form-label">NIS <span class="required">*</span></label>
+                <input id="studentNis" name="studentNis" class="form-control form-control-lg" type="text" maxlength="30" inputmode="numeric" placeholder="Masukkan NIS" required>
+                <div class="invalid-feedback">NIS wajib diisi dan hanya boleh berisi huruf, angka, garis miring, atau tanda hubung.</div>
+              </div>
+              <div class="mb-4">
+                <label for="studentClass" class="form-label">Kelas <span class="required">*</span></label>
+                <input id="studentClass" name="studentClass" class="form-control form-control-lg" type="text" maxlength="30" placeholder="Contoh: X TIL 1" required>
+                <div class="invalid-feedback">Kelas wajib diisi.</div>
+              </div>
+              <div id="formError" class="alert alert-warning d-none" role="alert"></div>
+              <button type="submit" class="btn btn-primary btn-lg w-100 start-btn">Mulai Asesmen <span aria-hidden="true">→</span></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="panel-card instruction-card h-100">
+            <h2>📌 Petunjuk Pengerjaan</h2>
+            <ul class="instruction-list">
+              <li><span>01</span><div><b>Baca soal dengan teliti</b><small>Setiap layar menampilkan satu soal.</small></div></li>
+              <li><span>02</span><div><b>Pilih satu jawaban</b><small>Jawaban terkunci setelah dipilih.</small></div></li>
+              <li><span>03</span><div><b>Pelajari umpan balik</b><small>Lihat hasil dan pembahasan sebelum lanjut.</small></div></li>
+              <li><span>04</span><div><b>Perhatikan waktu</b><small>Asesmen berakhir otomatis setelah 90 menit.</small></div></li>
+            </ul>
+            <div class="notice"><span>💡</span><p><b>Ingat!</b> Pastikan koneksi internet stabil karena Bootstrap dimuat dari CDN. Jangan menutup atau memuat ulang halaman selama asesmen.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen d-none" aria-live="polite">
+      <div class="quiz-topline">
+        <div><span class="eyebrow">ASESMEN BERLANGSUNG</span><h1 class="quiz-title">Good luck, <span id="greetingName">Learner</span>! ✨</h1></div>
+        <div class="timer-card" id="timerCard"><span class="timer-label">SISA WAKTU</span><strong id="timer">90:00</strong></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="d-flex justify-content-between small mb-2"><span id="questionCounter">Soal 1 dari 25</span><span id="progressPercent">4% selesai</span></div>
+        <div class="progress" role="progressbar" aria-label="Progres asesmen" aria-valuemin="0" aria-valuemax="25" aria-valuenow="0" id="progressBar"><div id="progressFill" class="progress-bar" style="width:0%"></div></div>
+      </div>
+      <div class="quiz-layout">
+        <article class="panel-card question-card">
+          <div class="question-meta"><span id="topicBadge" class="topic-badge">Asking and Giving Opinion</span><span id="difficultyBadge" class="difficulty-badge">Mudah</span></div>
+          <h2 id="questionText" class="question-text">Pertanyaan tampil di sini</h2>
+          <div id="optionsList" class="options-list"></div>
+          <div id="feedbackBox" class="feedback-box d-none" role="status" aria-live="assertive"></div>
+          <div class="question-footer">
+            <span id="answerStatus" class="answer-status">Pilih satu jawaban untuk melanjutkan.</span>
+            <button id="nextButton" class="btn btn-primary next-btn" disabled>Soal Berikutnya →</button>
+          </div>
+        </article>
+        <aside class="panel-card side-card">
+          <div class="student-mini"><div class="avatar">👩‍🎓</div><div><b id="miniName">Nama siswa</b><small id="miniClass">Kelas</small></div></div>
+          <hr>
+          <h3>Ringkasan</h3>
+          <div class="summary-row"><span>Sudah dijawab</span><b id="answeredCount">0 / 25</b></div>
+          <div class="summary-row"><span>Benar sementara</span><b id="correctCount">0</b></div>
+          <div class="summary-row"><span>Durasi</span><b>90 menit</b></div>
+          <div class="side-tip">🌟 <span>Kerjakan dengan jujur dan teliti. Kamu pasti bisa!</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen d-none">
+      <div class="result-hero">
+        <div class="result-icon" id="resultIcon">🎉</div>
+        <span class="eyebrow">ASESMEN SELESAI</span>
+        <h1 id="resultHeading">Well done!</h1>
+        <p id="resultMessage">Hasil asesmenmu sudah tersedia.</p>
+        <div class="score-ring"><div><strong id="finalScore">0</strong><span> NILAI / 100</span></div></div>
+      </div>
+      <div class="row g-4 mt-1">
+        <div class="col-lg-5">
+          <div class="panel-card h-100">
+            <h2 class="result-section-title">📋 Identitas & Waktu</h2>
+            <div class="result-detail"><span>Nama siswa</span><b id="resultName"></b></div>
+            <div class="result-detail"><span>NIS</span><b id="resultNis"></b></div>
+            <div class="result-detail"><span>Kelas</span><b id="resultClass"></b></div>
+            <div class="result-detail"><span>Waktu pengerjaan</span><b id="resultDuration"></b></div>
+            <div class="result-detail"><span>Status</span><b id="resultStatus">Selesai</b></div>
+            <div class="score-breakdown mt-4">
+              <div class="breakdown-good"><span>😊 Jawaban benar</span><strong id="resultCorrect">0</strong></div>
+              <div class="breakdown-bad"><span>😔 Jawaban salah/kosong</span><strong id="resultWrong">25</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="panel-card h-100">
+            <h2 class="result-section-title">💬 Umpan Balik</h2>
+            <p id="personalFeedback" class="personal-feedback"></p>
+            <div class="topic-results">
+              <div><span>Asking and Giving Opinion</span><div class="progress"><div id="opinionProgress" class="progress-bar"></div></div><b id="opinionScore">0/13</b></div>
+              <div><span>Describing an Object</span><div class="progress"><div id="descriptionProgress" class="progress-bar yellow-bar"></div></div><b id="descriptionScore">0/12</b></div>
+            </div>
+            <p class="small text-secondary mt-3 mb-0">Nilai dihitung dari jumlah jawaban benar dibagi 25, lalu dikalikan 100. Jawaban yang belum dipilih dihitung sebagai salah/kosong.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4"><button id="restartButton" class="btn btn-outline-primary btn-lg">Kembali ke Halaman Awal</button><button id="printButton" class="btn btn-primary btn-lg ms-sm-2 mt-2 mt-sm-0">Cetak Hasil</button></div>
+      <p class="text-center small text-secondary mt-3">Catatan: hasil tampil pada perangkat ini dan tidak otomatis dikirim atau disimpan ke server.</p>
+    </section>
+  </main>
+
+  <footer class="app-footer"><div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><span>© <span id="year"></span> DO IT 4 BETTER ENGLISH LEARNER</span><span>Learn today, lead tomorrow. 💙</span></div></footer>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
